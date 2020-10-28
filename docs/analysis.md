@@ -72,18 +72,18 @@ I want a sexy user interface
 ```
 
 ## Minimum Requirements based on User Stories
-Battle game interface - welcome and setup users - name
-Fight interface - ability for a User to select and complete an action
+- Battle game interface - welcome and setup users - name
+- Fight interface - ability for a User to select and complete an action
   - minimum requirement is single event chain
   - possible randomisation of first event as an enhancement / game leveller
-confirmation of action, and resultant impact on User / Opponent
-Visualisation of hit point status of User and Opponent
-Loop until game logic results in win/lose condition
+- confirmation of action, and resultant impact on User / Opponent
+- Visualisation of hit point status of User and Opponent
+- Loop until game logic results in win/lose condition
   - ignoring 'draw' game state at this time
-No requirement for history
-Single "Fight" event boundary
-requirement for a 'sexy' interface
-requirement for a 'single player' experience
+- No requirement for history
+- Single "Fight" event boundary
+- requirement for a 'sexy' interface
+- requirement for a 'single player' experience
 
 ## Objects / Methods / Properties
 ### Objects
@@ -123,7 +123,7 @@ AI / Computer opponent to be provided - randomise attacks / attack types
   - enhancement self selectable 'personality' based on opponent actions / status.
 'Sexy' user interface
 
-## Enhancements?
+## Enhancements
 - enable "power" of actions - to modify impacts, but introduce 'risks'/'vulnerabilities'
   - 'Vulnerabilities' - reflected nerfs on a User, due to 'risky' actions
   - turn or chain impacts
