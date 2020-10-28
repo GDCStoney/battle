@@ -87,41 +87,41 @@ I want a sexy user interface
 
 ## Objects / Methods / Properties
 ### Objects
-Battle - game / environment Object
-Fight - child object of Battle - single engagement
-User - player in Battle / Fight engagement - could be persistent or transitory
-Attack / Turn - object to capture Attack event - for history and combined actions
-Status / Health - object to manage the longer term effects of an 'Attack'
+- Battle - game / environment Object
+- Fight - child object of Battle - single engagement
+- User - player in Battle / Fight engagement - could be persistent or transitory
+- Attack / Turn - object to capture Attack event - for history and combined actions
+- Status / Health - object to manage the longer term effects of an 'Attack'
 
 ### Methods
-Action - method to capture event and apply status effects
-Confirmation/effect - confirmation of action and total reaction for a 'turn'
-Turn Management - transfer of control to do actions
+- Action - method to capture event and apply status effects
+- Confirmation/effect - confirmation of action and total reaction for a 'turn'
+- Turn Management - transfer of control to do actions
 
 ### Properties
-Name - property of 'User'
-Control state - ability for a user to submit an action
-Hit points - scoring property of the 'fight' / status of User
-Attack Type - property of Attack - different logic / impacts
-  Paralyse, Sleep, Attack, Poison, Heal,
-Effect - property of Action - determine actual effect - to be compiled into a 'Status' effect
-Status - combined property of 'User' - paralyse, Heal, Poison, etc to provide feed forward impacts of previous attack
+- Name - property of 'User'
+- Control state - ability for a user to submit an action
+- Hit points - scoring property of the 'fight' / status of User
+- Attack Type - property of Attack - different logic / impacts
+  - Paralyse, Sleep, Attack, Poison, Heal,
+- Effect - property of Action - determine actual effect - to be compiled into a 'Status' effect
+- Status - combined property of 'User' - paralyse, Heal, Poison, etc to provide feed forward impacts of previous attack
 
 ### Conditions
-Win - property of 'User' and/or 'Fight' - opponent reaches zero HP
-Lose - property of 'User' and/or 'Fight'- User reaches zero HP
-Probability - property of 'Status' and 'Effect' - some actions/effects should be probabilistic
+- Win - property of 'User' and/or 'Fight' - opponent reaches zero HP
+- Lose - property of 'User' and/or 'Fight'- User reaches zero HP
+- Probability - property of 'Status' and 'Effect' - some actions/effects should be probabilistic
 
 
 ## Development Steps
-reduce opponent HP by 10 on an attack
-Turn based activity - focus / ball switches after each action
-attack actions are to be visible to both parties
-AI / Computer opponent to be provided - randomise attacks / attack types
+- reduce opponent HP by 10 on an attack
+- Turn based activity - focus / ball switches after each action
+- attack actions are to be visible to both parties
+- AI / Computer opponent to be provided - randomise attacks / attack types
   - enhancement - provide 'fight logic tree'
   - enhancement - 'learning' - multiple trees / strategies / 'personalities'
   - enhancement self selectable 'personality' based on opponent actions / status.
-'Sexy' user interface
+- 'Sexy' user interface
 
 
 ## Future Enhancements
