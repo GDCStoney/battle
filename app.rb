@@ -6,11 +6,11 @@ class LoginScreen < Sinatra::Base
   get('/login') { erb :login }
 
   post('/login') do
-    if params['name'] == 'admin' && params['password'] == 'admin'
-      session['user_name'] = params['name']
-      redirect '/h'
-    else
+    if params['name'] == '' || params['battle_name'] == ''
       redirect '/login'
+    else
+      session['user_name'] = params['battle_name']
+      redirect '/battle'
     end
   end
 end
@@ -24,8 +24,8 @@ class Battle < Sinatra::Application
     end
   end
 
-  get '/h' do
-    "Hello world! welcomes #{session['user_name']}."
+  get '/battle' do
+    "BATTLE \u2122, welcomes #{session['user_name']} to the fray!!"
   end
 
   run! if app_file == $0

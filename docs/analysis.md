@@ -113,7 +113,7 @@ Lose - property of 'User' and/or 'Fight'- User reaches zero HP
 Probability - property of 'Status' and 'Effect' - some actions/effects should be probabilistic
 
 
-## DEV STEP
+## Development Steps
 reduce opponent HP by 10 on an attack
 Turn based activity - focus / ball switches after each action
 attack actions are to be visible to both parties
@@ -123,7 +123,8 @@ AI / Computer opponent to be provided - randomise attacks / attack types
   - enhancement self selectable 'personality' based on opponent actions / status.
 'Sexy' user interface
 
-## Enhancements
+
+## Future Enhancements
 - enable "power" of actions - to modify impacts, but introduce 'risks'/'vulnerabilities'
   - 'Vulnerabilities' - reflected nerfs on a User, due to 'risky' actions
   - turn or chain impacts
