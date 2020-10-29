@@ -1,11 +1,10 @@
 source 'http://rubygems.org'
 
 group :web do
-  gem 'sinatra'
-  gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'shotgun'
-  gem 'haml'
+  gem 'sinatra'
 end
 
 group :test do

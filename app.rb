@@ -1,31 +1,42 @@
 require 'sinatra/base'
+require './lib/game'
+require './lib/player'
+require './lib/attack'
 
 class MakersRoute < Sinatra::Base
-  enable :sessions
-
   get '/' do
     erb :m_names
   end
 
   post '/play' do
-    $player_1 = Player.new(params[:player_1_name])
-    $player_2 = Player.new(params[:player_2_name])
+    $game = Game.new(Player.new(params[:player_1_name]), Player.new(params[:player_2_name]))
     redirect '/play'
   end
 
   get '/play' do
-    @player_1 = $player_1
-    @player_2 = $player_2
+    @game = $game
 
     erb :m_play
   end
 
   get '/attack' do
-    @player_1 = $player_1
-    @player_2 = $player_2
-    Game.new.attack(@player_2)
+    @game = $game
+    Attack.run(@game.opponent_of(@game.current_turn))
+    if $game.game_over?
+      redirect '/game_over'
+    else
+      erb :m_attack
+    end
+  end
 
-    erb :m_attack
+  post '/attack' do
+    $game.switch_turns
+    redirect '/play'
+  end
+
+  get '/game_over' do
+    @game = $game
+    erb :m_game_over
   end
 end
 
@@ -45,18 +56,19 @@ class LoginScreen < Sinatra::Base
 end
 
 class Battle < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'here be ninjas'
+
   use LoginScreen
   use MakersRoute
 
-  before do
-    unless session['user_name']
-        halt "Access denied, please <a href='/login'>login</a>"
-    end
-  end
+#  before do
+#    halt "Access denied, please <a href='/login'>login</a>" unless session['user_name']
+#  end
 
   get '/battle' do
     "BATTLE \u2122, welcomes #{session['user_name']} to the fray!!"
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end

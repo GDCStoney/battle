@@ -6,7 +6,7 @@ describe Player do
 
   describe '#name' do
     it 'returns the name' do
-      expect(dave.name).to eq "Dave"
+      expect(dave.name).to eq 'Dave'
     end
   end
 
@@ -17,15 +17,15 @@ describe Player do
   end
 
   describe '#attack' do
-    it 'reduces the hit_points by 10' do
-      expect(jane).to receive(:receive_damage)
-      Game.new.attack(jane)
+    it ' -reduces the hit_points by 10' do
+      expect(jane).to receive(:damage)
+      Attack.run(jane)
     end
   end
 
-  describe '#receive_damage' do
+  describe '#damage' do
     it 'reduces the player hit_points' do
-      expect { dave.receive_damage }.to change { dave.hit_points }.by -10
+      expect { dave.damage(10) }.to change { dave.hit_points }.by(-10)
     end
   end
 end
