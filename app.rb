@@ -4,25 +4,28 @@ require './lib/player'
 require './lib/attack'
 
 class MakersRoute < Sinatra::Base
+  before do
+    @game = Game.instance
+  end
+
   get '/' do
     erb :m_names
   end
 
   post '/play' do
-    $game = Game.new(Player.new(params[:player_1_name]), Player.new(params[:player_2_name]))
+    player_1 = Player.new(params[:player_1_name])
+    player_2 = Player.new(params[:player_2_name])
+    @game = Game.create(player_1, player_2)
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
-
     erb :m_play
   end
 
   get '/attack' do
-    @game = $game
     Attack.run(@game.opponent_of(@game.current_turn))
-    if $game.game_over?
+    if @game.game_over?
       redirect '/game_over'
     else
       erb :m_attack
@@ -30,12 +33,11 @@ class MakersRoute < Sinatra::Base
   end
 
   post '/attack' do
-    $game.switch_turns
+    @game.switch_turns
     redirect '/play'
   end
 
   get '/game_over' do
-    @game = $game
     erb :m_game_over
   end
 end

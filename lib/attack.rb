@@ -8,7 +8,6 @@ class Attack
   end
 
   def run
-    p random_damage
     @player.damage(random_damage)
   end
 
